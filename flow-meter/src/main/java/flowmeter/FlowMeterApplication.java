@@ -10,6 +10,9 @@ import com.pi4j.io.gpio.GpioPinDigitalInput;
 import com.pi4j.io.gpio.PinPullResistance;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
+import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
+import com.pi4j.io.gpio.event.GpioPinListener;
+import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 
 @SpringBootApplication
 public class FlowMeterApplication implements CommandLineRunner {
@@ -30,6 +33,8 @@ public class FlowMeterApplication implements CommandLineRunner {
 		// changes)
 		GpioPinDigitalInput flowMeter = gpio.provisionDigitalInputPin(RaspiPin.GPIO_02, "Flow Meter",
 				PinPullResistance.PULL_UP);
+		
+		flowMeter.addListener(new FlowMeterPinListener());
 
 		System.out.println("Listening for state changes on pin GPIO_02...");
 		PinState previousState = PinState.HIGH;
