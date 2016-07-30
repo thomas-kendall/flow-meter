@@ -37,6 +37,7 @@ public class FlowMeterApplication implements CommandLineRunner {
 			PinState state = flowMeter.getState();
 			if (state.compareTo(previousState) != 0) {
 				System.out.println(state.isHigh() ? "High" : state.isLow() ? "Low" : "Unknown");
+				previousState = state;
 			}
 		}
 	}
