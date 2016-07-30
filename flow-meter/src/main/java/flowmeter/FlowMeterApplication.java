@@ -32,5 +32,8 @@ public class FlowMeterApplication implements CommandLineRunner {
 
 		flowMeter.addListener(new FlowMeterPinListener());
 
+		while (true) {
+			Thread.sleep(1000);
+		}
 	}
 }
