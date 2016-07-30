@@ -19,7 +19,7 @@ public class FlowMeterApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... arg0) throws Exception {
-		System.out.println("Initializing...");
+		System.out.println("Listening on GPIO pin 2...");
 		final GpioController gpio = GpioFactory.getInstance();
 
 		// provision gpio pin #02 as an input pin with its internal pull up
