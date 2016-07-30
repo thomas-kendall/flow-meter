@@ -8,7 +8,6 @@ public class FlowMeterPinListener implements GpioPinListenerDigital {
 	private volatile long lastPulseNano = -1;
 	private volatile long numberOfPulses = 0;
 
-	@Override
 	public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent e) {
 
 		if (e.getState().isHigh()) {
